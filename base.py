@@ -6,9 +6,9 @@ class main():
     def open_folder(self):
         folder_path = filedialog.askdirectory()
         if folder_path:
-            self.entry.delete(0, tk.END,)  # 清空輸入框
-            self.entry.insert(0, folder_path)  # 插入選擇的資料夾路徑
-            self.action_button.config(state=tk.NORMAL)  # 啟用按鈕
+            self.entry.delete(0, tk.END,)  
+            self.entry.insert(0, folder_path)  
+            self.action_button.config(state=tk.NORMAL) 
     def load_folder(self):
         path=self.entry.get()
         self.text_output.delete('1.0',tk.END)
@@ -20,7 +20,7 @@ class main():
             self.action_button.config(state=tk.DISABLED)
     def button_click(self):
         self.entry = tk.Entry(root,font=font_2)
-        self.entry.grid(row=0, column=0, padx=(10, 0), pady=5, sticky="ew") #padx=(左，右)
+        self.entry.grid(row=0, column=0, padx=(10, 0), pady=5, sticky="ew") 
         self.entry.bind("<KeyRelease>", self.check_entry)
 
         self.button = tk.Button(root, text="OPEN FOLDER", command=self.open_folder,font=font_2)
