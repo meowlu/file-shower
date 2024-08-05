@@ -8,11 +8,13 @@ class main():
         if folder_path:
             self.entry.delete(0, tk.END,)  
             self.entry.insert(0, folder_path)  
-            self.action_button.config(state=tk.NORMAL) 
+            self.action_button.config(state=tk.NORMAL)  
     def load_folder(self):
         path=self.entry.get()
+        self.text_output.config(state=tk.NORMAL)
         self.text_output.delete('1.0',tk.END)
         wfc(folder_path=path,output=self.text_output)
+        self.text_output.config(state=tk.DISABLED)
     def check_entry(self, event=None):
         if self.entry.get().strip():
             self.action_button.config(state=tk.NORMAL)
@@ -28,7 +30,7 @@ class main():
 
         self.scrollbar = tk.Scrollbar(root)
         self.scrollbar.grid(row=1, column=2, sticky="ns")
-        self.text_output = tk.Text(root,font=custom_font,bg="#D3D3D3",yscrollcommand=self.scrollbar.set)
+        self.text_output = tk.Text(root,font=custom_font,bg="#D3D3D3",yscrollcommand=self.scrollbar.set,state=tk.DISABLED)
         self.text_output.grid(row=1, column=0, columnspan=2, padx=10, sticky="nsew")
         self.scrollbar.config(command=self.text_output.yview)
 
